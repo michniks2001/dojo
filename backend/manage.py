@@ -2,11 +2,21 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from dotenv import load_dotenv
+load_dotenv()
 
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+    django_env = os.environ.get('DJANGO_ENV')
+    if django_env == 'testing':
+        settings_module = 'config.testing_settings'
+    elif django_env == 'production':
+        settings_module = 'config.prod_settings'
+    else:
+        raise ValueError(f"Invalid DJANGO_ENV value: {django_env}. Must be 'testing' or 'production'")
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
