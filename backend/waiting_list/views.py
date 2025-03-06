@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework.generics import CreateAPIView
 
-# Create your views here.
+from .models import WaitingListItem
+from .serializers import WaitingListItemSerializer
+
+
+class WaitingListItemCreateView(CreateAPIView):
+    queryset = WaitingListItem.objects.all()
+    serializer_class = WaitingListItemSerializer

@@ -25,12 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET', 'django-insecure-$dv&ked2nglutm^!6gxq1)jtq3i_)vtggg7u#m84llxjst11@y')
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET', 'django-insecure-$dv&ked2nglutm^!6gxq1)jtq3i_)vtggg7u#m84llxjst11@y')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -43,11 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'user_config',
-    'posts_api'
+    'waiting_list',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -90,7 +92,7 @@ DATABASES = {
         'USER': 'postgres.evbzccyglhzgcigffqfq',
         'HOST': 'aws-0-us-west-1.pooler.supabase.com',
         'PORT': '6543',
-        'PASSWORD': os.environ.get('SUPABASE_PASS', '') 
+        'PASSWORD': os.environ.get('SUPABASE_PASS', '')
     }
 }
 

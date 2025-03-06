@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('rest_framework.urls')),
     path('api/', include('posts_api.urls')),
+    path('waiting-list/', include('waiting_list.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
