@@ -14,15 +14,18 @@ import {
 
 export default function Home() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [referralCode, setReferralCode] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await fetch("http://localhost:8000/waiting-list/", {
+      const response = await fetch("http://localhost:8000/waiting-list/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, name, interests }),
       });
+      const data = await response.json();
+      setReferralCode(data.referralCode);
       setShowModal(false);
       setShowSuccessModal(true);
     } catch (error) {
@@ -88,7 +91,7 @@ export default function Home() {
               You're on the list!
             </DialogTitle>
           </DialogHeader>
-          <p className='text-white'>Thanks for signing up!</p>
+          <p className='text-white'>Thanks for signing up! Your referral code is: {referralCode}</p>
           <Button
             variant='destructive'
             onClick={() => setShowSuccessModal(false)}
