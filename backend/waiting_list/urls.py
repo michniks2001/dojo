@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import WaitingListItemCreateView
+from .views import WaitingListItemView
 
 urlpatterns = [
-    path('', WaitingListItemCreateView.as_view(), name='waiting-list'),
+    path('', WaitingListItemView.as_view(), name='waiting-list'),
 ]

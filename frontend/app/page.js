@@ -11,6 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { CardContainer, CardBody, CardItem } from "@/components/AnimatedCard";
 
 export default function Home() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -75,7 +76,7 @@ export default function Home() {
           <h2 className='text-4xl font-bold text-center mb-12 text-[#C1272D] drop-shadow-lg'>
             Connect. Train. Grow.
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-4'>
             {features.map((feature, index) => (
               <FeatureCard key={index} {...feature} index={index} />
             ))}
@@ -88,10 +89,12 @@ export default function Home() {
         <DialogContent className='bg-[#1a0808]/95 border border-[#C1272D]/30'>
           <DialogHeader>
             <DialogTitle className='text-white'>
-              You're on the list!
+              You&apos;re on the list!
             </DialogTitle>
           </DialogHeader>
-          <p className='text-white'>Thanks for signing up! Your referral code is: {referralCode}</p>
+          <p className='text-white'>
+            Thanks for signing up! Your referral code is: {referralCode}
+          </p>
           <Button
             variant='destructive'
             onClick={() => setShowSuccessModal(false)}
@@ -136,15 +139,36 @@ function FeatureCard({ title, description, icon, index }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.2 * (index + 1) }}
+      transition={{
+        delay: 0.2 * (index + 1),
+        duration: 0.3,
+        ease: [0.17, 0.55, 0.55, 1],
+      }}
+      whileHover={{ scale: 1.02 }}
     >
-      <Card className='p-4 bg-white border-[#DDDDDD] hover:border-[#D4AF37] transition-colors duration-200'>
-        <div className='text-3xl mb-2'>{icon}</div>
-        <h3 className='text-lg font-bold mb-1.5 text-[#C1272D]'>
-          {title}
-        </h3>
-        <p className='text-sm text-[#333333]'>{description}</p>
-      </Card>
+      <CardContainer>
+        <CardBody className='bg-white relative group/card hover:shadow-2xl hover:shadow-[#C1272D]/[0.1] border-[#DDDDDD] hover:border-[#D4AF37] rounded-xl p-6 border transition-all duration-300 ease-out'>
+          <CardItem
+            translateZ='20'
+            className='text-3xl mb-2 transform transition-transform scale-100'
+          >
+            {icon}
+          </CardItem>
+          <CardItem
+            translateZ='30'
+            className='text-lg font-bold text-[#C1272D] transform transition-transform scale-100'
+          >
+            {title}
+          </CardItem>
+          <CardItem
+            as='p'
+            translateZ='40'
+            className='text-sm text-[#333333] mt-2 transform transition-transform scale-100'
+          >
+            {description}
+          </CardItem>
+        </CardBody>
+      </CardContainer>
     </motion.div>
   );
 }

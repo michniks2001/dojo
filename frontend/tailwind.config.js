@@ -13,6 +13,12 @@ module.exports = {
       animation: {
         "scale-up": "scale-up 0.2s ease-out",
       },
+      transformStyle: {
+        preserve3d: "preserve-3d",
+      },
+      perspective: {
+        1000: "1000px",
+      },
     },
   },
   variants: {
