@@ -1,7 +1,7 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
-from django.shortcuts import get_object_or_404
 from .models import Post, Like, Comment
 from .serializers import PostSerializer, LikeSerializer, CommentSerializer
 
@@ -45,7 +45,7 @@ class LikeCreateView(generics.CreateAPIView):
 
 class LikeDestroyView(generics.DestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
-    
+
     def get_object(self):
         post = get_object_or_404(Post, id=self.kwargs.get('post_id'))
         return get_object_or_404(Like, user=self.request.user, post=post)

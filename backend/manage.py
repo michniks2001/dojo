@@ -10,11 +10,12 @@ def main():
     """Run administrative tasks."""
     django_env = os.environ.get('DJANGO_ENV')
     if django_env == 'testing':
-        settings_module = 'config.testing_settings'
+        settings_module = 'config.settings.test_settings'
     elif django_env == 'production':
-        settings_module = 'config.prod_settings'
+        settings_module = 'config.settings.prod_settings'
     else:
-        raise ValueError(f"Invalid DJANGO_ENV value: {django_env}. Must be 'testing' or 'production'")
+        raise ValueError(
+            f"Invalid DJANGO_ENV value: {django_env}. Must be 'testing' or 'production'")
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:
