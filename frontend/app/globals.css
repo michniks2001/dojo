@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Merriweather:wght@300;400;700&display=swap');
 
-@plugin 'tailwindcss-animate';
-
-@custom-variant dark (&:is(.dark *));
 @import "tailwindcss";
 
 :root {
-  /* Primary Colors */
+  /* Senkai Blue Color Scheme */
+  --primary: #031A6B;
+  --primary-dark: #033860;
+  --primary-mid: #087CA7;
+  --primary-alt: #004385;
+  --accent: #05B2DC;
+
   --background: #FFFFFF;
   --background-secondary: #F5F5F5;
-  
-  /* Accent Colors */
-  --accent-primary: #C1272D;
-  --accent-secondary: #D4AF37;
-  
+  --text-primary: #031A6B;
+  --border: #033860;
+  --accent-primary: #031A6B;
+  --accent-secondary: #05B2DC;
+
   /* Typography & Borders */
   --text-primary: #333333;
   --border: #DDDDDD;
@@ -63,17 +66,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
-  color: var(--accent-primary);
+  color: var(--primary);
   font-weight: 700;
 }
 
 a {
-  color: var(--accent-primary);
+  color: var(--accent);
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: var(--accent-secondary);
+  color: var(--primary-mid);
 }
 
 .dark {

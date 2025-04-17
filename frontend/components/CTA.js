@@ -67,8 +67,8 @@ export default function CTA() {
   };
 
   return (
-    <div className='w-full max-w-md mx-auto bg-white rounded-lg shadow-lg border border-[#DDDDDD] p-6'>
-      <h3 className='text-2xl font-bold mb-4 text-[#C1272D]'>
+    <div className='w-full max-w-md mx-auto bg-[var(--background)] rounded-lg shadow-lg border border-[var(--border)] p-6'>
+      <h3 className='text-2xl font-bold mb-4 text-[var(--primary)]'>
         Join Our Community
       </h3>
       {showSuccess ? (
@@ -77,7 +77,7 @@ export default function CTA() {
           animate={{ opacity: 1, y: 0 }}
           className='space-y-4'
         >
-          <div className='bg-[#F5F5F5] border border-[#D4AF37] text-[#333333] p-4 rounded-md'>
+          <div className='bg-[var(--background-secondary)] border border-[var(--border)] text-[var(--text-primary)] p-4 rounded-md'>
             <p className='mb-2'>
               Thanks for signing up! We&apos;ll be in touch soon.
             </p>
@@ -88,13 +88,13 @@ export default function CTA() {
               <Input
                 readOnly
                 value={generatedReferralCode}
-                className='bg-white border-[#DDDDDD] text-[#333333] font-mono'
+                className='bg-[var(--background)] border-[var(--border)] text-[var(--text-primary)] font-mono'
               />
               <Button
                 onClick={copyReferralCode}
                 variant='outline'
                 size='icon'
-                className='hover:bg-[#F5F5F5] hover:text-[#C1272D]'
+                className='hover:bg-[var(--background-secondary)] hover:text-[var(--primary)]'
               >
                 <Copy className='h-4 w-4' />
               </Button>
@@ -102,7 +102,7 @@ export default function CTA() {
           </div>
           <Button
             onClick={() => setShowSuccess(false)}
-            className='w-full bg-[#C1272D] text-white hover:bg-[#C1272D]/90 transition-colors duration-200 font-bold cursor-pointer'
+            className='w-full bg-[var(--primary)] text-white hover:bg-[var(--primary)]/90 transition-colors duration-200 font-bold cursor-pointer'
           >
             Add Another
           </Button>
@@ -110,7 +110,7 @@ export default function CTA() {
       ) : (
         <form onSubmit={handleSubmit} className='space-y-4'>
           <div className='space-y-1.5'>
-            <label className='block text-sm font-medium text-[#333333]'>
+            <label className='block text-sm font-medium text-[var(--text-primary)]'>
               Name
             </label>
             <Input
@@ -119,12 +119,12 @@ export default function CTA() {
               onChange={(e) => setName(e.target.value)}
               placeholder='Enter your name'
               required
-              className='bg-[#F5F5F5] border-[#DDDDDD] text-[#333333] w-full focus:border-[#D4AF37] focus:ring-[#D4AF37]'
+              className='bg-[var(--background-secondary)] border-[var(--border)] text-[var(--text-primary)] w-full focus:border-[var(--border)] focus:ring-[var(--accent-secondary)]'
             />
           </div>
 
           <div className='space-y-1.5'>
-            <label className='block text-sm font-medium text-[#333333]'>
+            <label className='block text-sm font-medium text-[var(--text-primary)]'>
               Email
             </label>
             <Input
@@ -133,12 +133,12 @@ export default function CTA() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder='Enter your email'
               required
-              className='bg-[#F5F5F5] border-[#DDDDDD] text-[#333333] w-full focus:border-[#D4AF37] focus:ring-[#D4AF37]'
+              className='bg-[var(--background-secondary)] border-[var(--border)] text-[var(--text-primary)] w-full focus:border-[var(--border)] focus:ring-[var(--accent-secondary)]'
             />
           </div>
 
           <div className='space-y-1.5'>
-            <label className='block text-sm font-medium text-[#333333]'>
+            <label className='block text-sm font-medium text-[var(--text-primary)]'>
               What interests you most?
             </label>
             <Select
@@ -148,15 +148,15 @@ export default function CTA() {
                 }
               }}
             >
-              <SelectTrigger className='bg-[#F5F5F5] border-[#DDDDDD] text-[#333333] w-full focus:border-[#D4AF37] focus:ring-[#D4AF37]'>
+              <SelectTrigger className='bg-[var(--background-secondary)] border-[var(--border)] text-[var(--text-primary)] w-full focus:border-[var(--border)] focus:ring-[var(--accent-secondary)]'>
                 <SelectValue placeholder='Select your interests' />
               </SelectTrigger>
-              <SelectContent className='bg-white border-[#DDDDDD]'>
+              <SelectContent className='bg-[var(--background)] border-[var(--border)]'>
                 {interestOptions.map((option) => (
                   <SelectItem
                     key={option.value}
                     value={option.value}
-                    className='text-[#333333] hover:bg-[#F5F5F5] cursor-pointer'
+                    className='text-[var(--text-primary)] hover:bg-[var(--background-secondary)] cursor-pointer'
                   >
                     {option.label}
                   </SelectItem>
@@ -168,7 +168,7 @@ export default function CTA() {
                 {interests.map((interest) => (
                   <div
                     key={interest}
-                    className='bg-[#F5F5F5] text-[#333333] px-2 py-1 rounded-md flex items-center gap-2 border border-[#DDDDDD]'
+                    className='bg-[var(--background-secondary)] text-[var(--text-primary)] px-2 py-1 rounded-md flex items-center gap-2 border border-[var(--border)]'
                   >
                     {
                       interestOptions.find((opt) => opt.value === interest)
@@ -179,7 +179,7 @@ export default function CTA() {
                       onClick={() =>
                         setInterests(interests.filter((i) => i !== interest))
                       }
-                      className='text-[#333333]/60 hover:text-[#C1272D]'
+                      className='text-[var(--text-primary)]/60 hover:text-[var(--primary)]'
                     >
                       ×
                     </button>
@@ -190,7 +190,7 @@ export default function CTA() {
           </div>
 
           <div className='space-y-1.5'>
-            <label className='block text-sm font-medium text-[#333333]'>
+            <label className='block text-sm font-medium text-[var(--text-primary)]'>
               Referral Code (Optional)
             </label>
             <Input
@@ -198,13 +198,13 @@ export default function CTA() {
               value={referralCode}
               onChange={(e) => setReferralCode(e.target.value)}
               placeholder='Enter referral code if you have one'
-              className='bg-[#F5F5F5] border-[#DDDDDD] text-[#333333] w-full focus:border-[#D4AF37] focus:ring-[#D4AF37]'
+              className='bg-[var(--background-secondary)] border-[var(--border)] text-[var(--text-primary)] w-full focus:border-[var(--border)] focus:ring-[var(--accent-secondary)]'
             />
           </div>
 
           <Button
             type='submit'
-            className='w-full bg-[#C1272D] text-white hover:bg-[#C1272D]/90 transition-colors duration-200 font-bold cursor-pointer'
+            className='w-full bg-[var(--primary)] text-white hover:bg-[var(--primary)]/90 transition-colors duration-200 font-bold cursor-pointer'
           >
             Join the Community
           </Button>

@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'email', 'first_name', 'last_name', 'password')
         read_only_fields = ('id', 'email')
+        ref_name = 'UserConfigUser'
 
 
 class UserCreateSerializer(serializers.ModelSerializer):

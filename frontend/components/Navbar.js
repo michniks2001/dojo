@@ -20,16 +20,16 @@ export default function Navbar() {
   };
 
   return (
-    <nav className='sticky top-0 z-50 w-full bg-white border-b border-[#DDDDDD] font-["Montserrat"]'>
+    <nav className='sticky top-0 z-50 w-full bg-[var(--background)] border-b border-[var(--border)] font-["Montserrat"]'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6'>
         <div className='flex justify-between items-center h-16'>
           {/* Logo and Main Nav */}
           <div className='flex items-center'>
             <Link
               href='/home'
-              className='text-xl font-bold text-[#C1272D] mr-8'
+              className='text-xl font-bold text-[var(--primary)] mr-8'
             >
-              Dojo
+              Senkai
             </Link>
             <div className='hidden md:flex items-center space-x-4'>
               <NavLink href='/home' active={isActive("/home")}>
@@ -55,16 +55,16 @@ export default function Navbar() {
             <div className='relative w-full'>
               <Input
                 type='text'
-                placeholder='Search Dojo...'
-                className='w-full bg-[#F5F5F5] border-[#DDDDDD] pl-10 focus:border-[#D4AF37] focus:ring-[#D4AF37]'
+                placeholder='Search Senkai...'
+                className='w-full bg-[var(--background-secondary)] border-[var(--border)] pl-10 focus:border-[var(--accent-secondary)] focus:ring-[var(--accent-secondary)]'
               />
-              <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 text-[#333333] h-4 w-4' />
+              <Search className='absolute left-3 top-1/2 transform -translate-y-1/2 text-[var(--text-primary)] h-4 w-4' />
             </div>
           </div>
 
           {/* Right Side Nav */}
           <div className='flex items-center space-x-4'>
-            <button className='text-[#333333] hover:text-[#C1272D]'>
+            <button className='text-[var(--text-primary)] hover:text-[var(--primary)]'>
               <Bell className='h-5 w-5' />
             </button>
 
@@ -118,8 +118,8 @@ function NavLink({ href, active, children }) {
       href={href}
       className={`px-3 py-2 rounded-md text-sm font-bold transition-colors duration-200 ${
         active
-          ? "text-[#C1272D] bg-[#F5F5F5]"
-          : "text-[#333333] hover:text-[#C1272D] hover:bg-[#F5F5F5]"
+          ? "text-[var(--primary)] bg-[var(--background-secondary)]"
+          : "text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-[var(--background-secondary)]"
       }`}
     >
       {children}

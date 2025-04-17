@@ -35,7 +35,7 @@ export default function Home() {
   }
 
   return (
-    <main className='min-h-screen flex flex-col lg:flex-row bg-white'>
+    <main className='min-h-screen flex flex-col lg:flex-row bg-[var(--background)]'>
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: -20 }}
@@ -43,21 +43,21 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         className='w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen flex items-center justify-center lg:sticky lg:top-0 px-4 py-12 lg:py-0'
       >
-        <div className='absolute inset-0 opacity-20 bg-gradient-to-b from-[#C1272D]/10 via-transparent to-transparent' />
+        <div className='absolute inset-0 opacity-20 bg-gradient-to-b from-[var(--primary)]/10 via-transparent to-transparent' />
         <div className='relative z-10 text-center'>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className='text-5xl lg:text-6xl font-bold mb-6 text-[#C1272D] drop-shadow-lg'
+            className='text-5xl lg:text-6xl font-bold mb-6 text-[var(--primary)] drop-shadow-lg'
           >
-            Welcome to Dojo
+            Welcome to Senkai
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className='text-lg lg:text-xl mb-8 text-[#333333]'
+            className='text-lg lg:text-xl mb-8 text-[var(--text-primary)]'
           >
             The Ultimate Platform for Martial Artists
           </motion.p>
@@ -66,14 +66,14 @@ export default function Home() {
       </motion.section>
 
       {/* Features Section */}
-      <section className='w-full lg:w-1/2 bg-[#F5F5F5] py-12 px-8'>
+      <section className='w-full lg:w-1/2 bg-[var(--background-secondary)] py-12 px-8'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className='max-w-2xl mx-auto'
         >
-          <h2 className='text-4xl font-bold text-center mb-12 text-[#C1272D] drop-shadow-lg'>
+          <h2 className='text-4xl font-bold text-[var(--primary)] mb-12 text-[var(--primary)] drop-shadow-lg'>
             Connect. Train. Grow.
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 px-4'>
@@ -86,7 +86,7 @@ export default function Home() {
 
       {/* Success Modal */}
       <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
-        <DialogContent className='bg-[#1a0808]/95 border border-[#C1272D]/30'>
+        <DialogContent className='bg-[var(--primary-dark)/95] border border-[var(--primary)/30]'>
           <DialogHeader>
             <DialogTitle className='text-white'>
               You&apos;re on the list!
@@ -98,7 +98,7 @@ export default function Home() {
           <Button
             variant='destructive'
             onClick={() => setShowSuccessModal(false)}
-            className='w-full'
+            className='w-full bg-[var(--primary)] border-[var(--primary)]'
           >
             Close
           </Button>
@@ -147,7 +147,7 @@ function FeatureCard({ title, description, icon, index }) {
       whileHover={{ scale: 1.02 }}
     >
       <CardContainer>
-        <CardBody className='bg-white relative group/card hover:shadow-2xl hover:shadow-[#C1272D]/[0.1] border-[#DDDDDD] hover:border-[#D4AF37] rounded-xl p-6 border transition-all duration-300 ease-out'>
+        <CardBody className='bg-[var(--background)] relative group/card hover:shadow-2xl hover:shadow-[var(--primary)/0.1] border-[var(--border)] hover:border-[var(--accent-secondary)] rounded-xl p-6 border transition-all duration-300 ease-out'>
           <CardItem
             translateZ='20'
             className='text-3xl mb-2 transform transition-transform scale-100'
@@ -156,14 +156,14 @@ function FeatureCard({ title, description, icon, index }) {
           </CardItem>
           <CardItem
             translateZ='30'
-            className='text-lg font-bold text-[#C1272D] transform transition-transform scale-100'
+            className='text-lg font-bold text-[var(--primary)] transform transition-transform scale-100'
           >
             {title}
           </CardItem>
           <CardItem
             as='p'
             translateZ='40'
-            className='text-sm text-[#333333] mt-2 transform transition-transform scale-100'
+            className='text-sm text-[var(--text-primary)] mt-2 transform transition-transform scale-100'
           >
             {description}
           </CardItem>

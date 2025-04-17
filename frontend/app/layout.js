@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Dojo",
+  title: "Senkai",
   description: "The ultimate platform made for martial artists by martial artists!",
 };
 

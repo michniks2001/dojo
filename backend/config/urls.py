@@ -40,6 +40,7 @@ urlpatterns = [
     path('auth/', include('rest_framework.urls')),
     path('api/', include('posts_api.urls')),
     path('waiting-list/', include('waiting_list.urls')),
+    path('user/', include('user_config.urls')),
 
     re_path(r'^swagger(?P<format>\.json|\.yaml)$',
             schema_view.without_ui(cache_timeout=0), name='schema-json'),

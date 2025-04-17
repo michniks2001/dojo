@@ -2,7 +2,7 @@ import { Image } from "next/image";
 
 const PostCard = () => {
   return (
-    <article className='rounded-xl border-2 border-gray-100 bg-white'>
+    <article className='rounded-xl border-2 border-[var(--border)] bg-[var(--background)]'>
       <div className='flex items-start gap-4 p-4 sm:p-6 lg:p-8'>
         <a href='#' className='block shrink-0'>
           <Image
@@ -18,7 +18,7 @@ const PostCard = () => {
                 John Smith
               </a>
             </h3>
-            <span className='text-xs text-gray-500'>2 hours ago</span>
+            <span className='text-xs text-[var(--primary-mid)]'>2 hours ago</span>
           </div>
 
           <p className='mt-2 text-sm text-gray-700'>
@@ -29,7 +29,7 @@ const PostCard = () => {
 
           <div className='mt-4 flex items-center justify-between'>
             <div className='flex items-center gap-4'>
-              <button className='flex items-center gap-1 text-gray-500 hover:text-red-500 transition-colors'>
+              <button className='flex items-center gap-1 text-[var(--primary-mid)] hover:text-[var(--primary)] transition-colors'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='size-5'
@@ -47,7 +47,7 @@ const PostCard = () => {
                 <span className='text-sm'>124 likes</span>
               </button>
 
-              <button className='flex items-center gap-1 text-gray-500 hover:text-blue-500 transition-colors'>
+              <button className='flex items-center gap-1 text-[var(--primary-mid)] hover:text-[var(--accent)] transition-colors'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='size-5'
@@ -66,7 +66,7 @@ const PostCard = () => {
               </button>
             </div>
 
-            <button className='flex items-center gap-1 text-gray-500 hover:text-gray-700 transition-colors'>
+            <button className='flex items-center gap-1 text-[var(--primary-mid)] hover:text-[var(--primary-alt)] transition-colors'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='size-5'
@@ -89,7 +89,7 @@ const PostCard = () => {
 
       {/* Optional trending/popular indicator */}
       <div className='flex justify-end'>
-        <div className='-me-[2px] -mb-[2px] inline-flex items-center gap-1 rounded-ss-xl rounded-ee-xl bg-blue-600 px-3 py-1.5 text-white'>
+        <div className='-me-[2px] -mb-[2px] inline-flex items-center gap-1 rounded-ss-xl rounded-ee-xl bg-[var(--primary)] px-3 py-1.5 text-[var(--background)]'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             className='size-4'
